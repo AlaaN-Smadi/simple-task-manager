@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" />
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="./js/storage-manager.js"></script>
+    <script src="./js/app.js"></script>
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Ala'a ToDo List</title>
+</head>
+
+<body>
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center list-main-container">
+                <div class="col-md-12">
+                    <div class="card px-3">
+                        <div class="card-body">
+                            <h4 class="card-title">Ala'a Todo list</h4>
+                            <div class="add-items d-flex">
+                                <input id="to-do-input" type="text" class="form-control todo-list-input"
+                                    placeholder="What do you need to do today?">
+                                <button id="to-do-add-btn"
+                                    class="add btn btn-primary font-weight-bold todo-list-add-btn">Add</button>
+                                <button id="to-do-delete-all-btn"
+                                    class="add btn btn-danger font-weight-bold todo-list-add-btn">Delete All</button>
+                            </div>
+                            <div class="list-wrapper">
+                                <ul id="to-do-list-ul" class="d-flex flex-column-reverse todo-list">
+                                    <h4 class="empty-state"> Seems You haven't added anything yet </h4>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    window.onload = () => {
+        Index.init();
+    }
+</script>
+
+</html>
