@@ -89,26 +89,32 @@ class Index {
         })
 
         this.globalState.clearListItem.addEventListener('click', () => {
-            swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this imaginary file!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            }).then((willDelete) => {
-                if (willDelete) {
-
-                    this.globalState.listData = [];
-                    StorageManager.saveData(this.globalState.listData);
-
-                    this.globalState.selectorList.innerHTML = "<h4 class='empty-state'> Seems You haven't added anything yet </h4>";
-                    swal("Poof! Your imaginary file has been deleted!", {
-                        icon: "success",
-                    });
-                } else {
-                    swal("Your imaginary file is safe!");
-                }
-            });
+            if(this.globalState.listData.length){
+                swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this imaginary file!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                }).then((willDelete) => {
+                    if (willDelete) {
+    
+                        this.globalState.listData = [];
+                        StorageManager.saveData(this.globalState.listData);
+    
+                        this.globalState.selectorList.innerHTML = "<h4 class='empty-state'> Seems You haven't added anything yet </h4>";
+                        swal("Poof! Your imaginary file has been deleted!", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Your imaginary file is safe!");
+                    }
+                });
+            }else{
+                swal("Seems there is nothing to delete", {
+                    icon: "warning",
+                });
+            }
         })
     }
 
